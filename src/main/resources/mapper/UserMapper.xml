@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.StudentDao">
+
+    <resultMap id="BaseResult" type="map">
+        <result column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="subjects" property="subjects" jdbcType="VARCHAR" />
+        <result column="stu_json" property="stuJson" javaType="net.sf.json.JSONObject" typeHandler="com.demo.handler.JsonTypeHandler"/>
+    </resultMap>
+    <select id="queryStudents" resultMap="BaseResult">
+        SELECT * FROM public.student2
+    </select>
+</mapper>
